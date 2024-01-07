@@ -8,7 +8,7 @@ jobs:
      image: ghcr.io/ajay253517/flask-app:v-064cd
      credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.github_token }}
+      password: ${{ secrets.GH_TOKEN }}
      volumes:
         - .:/app
     steps:
