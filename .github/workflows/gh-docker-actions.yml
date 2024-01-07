@@ -1,0 +1,19 @@
+name: Docker-CI
+on: 
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: 
+     image: ghcr.io/ajay253517/flask-app:v-064cd
+     credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.github_token }}
+     volumes:
+        - .:/app
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Running testing 
+      run: |
+       python docker-test.py
